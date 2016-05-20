@@ -3,6 +3,7 @@ var casper = require('casper').create({
   verbose: true,
   logLevel: 'debug'
 });
+var config = require('./config.json')
 
 casper.userAgent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:48.0) Gecko/20100101 Firefox/48.0'
 
@@ -34,8 +35,8 @@ casper.start('https://www.homesavings.com', function() {
 casper.waitForSelector('form[name="Login"]', function() {
   this.echo('Filling out Login form..')
   this.fill('form[name="Login"]', {
-    userid: 'cdock1029',
-    password: 'NXdyTWEvLVs8E3'
+    userid: config.userid,
+    password: config.password
   })
 })
 
